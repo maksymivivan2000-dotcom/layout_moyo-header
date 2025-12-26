@@ -1,3 +1,87 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Змінні */
+:root {
+  --blue: #00acdc; /* синій колір */
+  --font-family: 'Roboto', sans-serif;
+}
+
+/* Базові стилі для body */
+body {
+  font-family: var(--font-family);
+  font-weight: 500;
+  background-color: white;
+}
+
+/* Header - flex контейнер */
+.header {
+  display: flex;
+  align-items: center; /* вертикальне центрування */
+  justify-content: space-between; /* логотип зліва, меню справа */
+  height: 60px; /* висота з дизайну */
+  padding: 0 20px; /* горизонтальні відступи */
+  width: 100%;
+}
+
+/* Логотип */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+/* Меню - flex рядок */
+.menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Відступи між пунктами меню через margin-right, крім останнього */
+.menu li:not(:last-child) {
+  margin-right: 30px;
+}
+
+/* Посилання в меню */
+.menu li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase; /* всі літери великі */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition:
+    color 0.3s ease,
+    border-bottom-color 0.3s ease;
+  user-select: none;
+  white-space: nowrap;
+  border-bottom: 4px solid transparent;
+  padding-bottom: 0;
+  padding-top: 0;
+  height: 100%;
+}
+
+/* Hover для посилань */
+.menu li a:hover {
+  color: var(--blue);
+}
+
+/* Активне посилання */
+.menu li a.is-active {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
 }
